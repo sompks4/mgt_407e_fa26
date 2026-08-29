@@ -163,6 +163,25 @@ input:focus, textarea:focus { outline: 2px solid var(--som-blue); outline-offset
 .progress-pill.complete { background: #e6f4ea; color: var(--ok); }
 
 #loading { padding: 2rem; color: var(--muted); }
+
+.filename-note { margin-top: 1rem; }
+
+.filename-note p { margin: 0.5rem 0; }
+
+.filename-big { text-align: center; margin: 0.7rem 0 !important; }
+
+.filename-big code {
+  font-size: 1.05rem;
+  font-weight: 600;
+  background: #fff;
+  border: 1px solid var(--som-blue);
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radius);
+  display: inline-block;
+  word-break: break-all;
+}
+
+#filename-history { color: var(--muted); }
 </style>
 </head>
 <body class="composer-body">
@@ -214,7 +233,16 @@ input:focus, textarea:focus { outline: 2px solid var(--som-blue); outline-offset
           <input type="text" id="meta-first" autocomplete="given-name">
         </div>
       </div>
-      <p class="attach-hint" id="filename-preview">Your file will be named <code>ps2_lastname_firstname.pdf</code>.</p>
+      <div class="note filename-note">
+        <p><strong>How your file gets named.</strong> Each time you press
+        <em>Generate PDF</em> you get a new file, numbered in order:</p>
+        <p class="filename-big"><code id="filename-preview">ps2_lastname_firstname_v1.pdf</code></p>
+        <p><strong>Upload the highest-numbered one to Canvas.</strong> Generate as many as
+        you like — go back, fix an answer, generate again — nothing is lost and nothing is
+        sent anywhere until you upload it yourself. The version number is printed on the
+        first page and in the footer of every page, so you can always tell two files apart
+        by opening them. <span id="filename-history">You have not generated one yet.</span></p>
+      </div>
 
       <div id="problems"></div>
 

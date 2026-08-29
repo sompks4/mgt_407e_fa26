@@ -108,6 +108,7 @@ function startComposer(config) {
     checks: { check1: "", check2: "" },
     files: [],
     hours: "",
+    version: 0,      // PDFs generated so far; the next one is v(version + 1)
     updated: null
   };
   var problems = [];
@@ -145,6 +146,32 @@ function startComposer(config) {
     }, function () {
       setStatus("Could not save — download a draft to be safe");
     });
+  }
+
+  /* ------------------------------------------------------------ file naming */
+
+  /* Every generated PDF carries its own version number, so a student who
+     regenerates after fixing an answer can tell at a glance which file in their
+     downloads folder is the newest one to upload. */
+  function pdfName(version) {
+    return config.setId + "_" +
+      (slug(state.meta.last) || "lastname") + "_" +
+      (slug(state.meta.first) || "firstname") +
+      "_v" + version + ".pdf";
+  }
+
+  function renderFilename() {
+    var host = document.getElementById("filename-preview");
+    if (!host) return;
+    host.textContent = pdfName(state.version + 1);
+    var said = document.getElementById("filename-history");
+    if (!said) return;
+    said.textContent = state.version === 0
+      ? "You have not generated one yet."
+      : (state.version === 1
+          ? "You have generated one so far (v1). Generating again gives you v2, and v2 is the one to upload."
+          : "You have generated " + state.version + " so far, up to v" + state.version +
+            ". The newest is always the highest number.");
   }
 
   /* ------------------------------------------------------------- rendering */
@@ -359,7 +386,7 @@ function startComposer(config) {
 
   /* --------------------------------------------------------- PDF assembly  */
 
-  function buildPdf() {
+  function buildPdf(version) {
     var doc = new jspdf.jsPDF({ unit: "pt", format: "letter", compress: true });
     var M = 54, PW = 612, PH = 792;
     var CW = PW - 2 * M;
@@ -419,7 +446,8 @@ function startComposer(config) {
     write(config.course, { size: 9, style: "bold", grey: true, gap: 1 });
     write(config.setTitle, { size: 16, style: "bold", gap: 2 });
     write(name, { size: 12, gap: 1 });
-    write("Assembled " + new Date().toLocaleString(), { size: 9, grey: true, gap: 6 });
+    write("Version " + version + ", assembled " + new Date().toLocaleString(),
+          { size: 9, grey: true, gap: 6 });
     rule("heavy");
 
     /* problems, one per page */
@@ -480,7 +508,7 @@ function startComposer(config) {
       doc.setFont("helvetica", "normal");
       doc.setFontSize(8.5);
       doc.setTextColor(120);
-      doc.text(cleanText(name + "  |  " + config.setTitle), M, PH - 30);
+      doc.text(cleanText(name + "  |  " + config.setTitle + "  |  v" + version), M, PH - 30);
       doc.text("Page " + p + " of " + pages, PW - M, PH - 30, { align: "right" });
     }
     return doc;
@@ -511,9 +539,17 @@ function startComposer(config) {
     }
     setStatus("Building the PDF…");
     try {
-      var doc = buildPdf();
-      doc.save(config.setId + "_" + slug(state.meta.last) + "_" + slug(state.meta.first) + ".pdf");
-      setStatus("PDF downloaded " + stamp() + " — open it and read it before uploading");
+      var version = state.version + 1;
+      var doc = buildPdf(version);
+      var filename = pdfName(version);
+      doc.save(filename);
+      // Only count a version once the file is actually out, so a failed build
+      // does not burn a number and leave a gap in the student's downloads.
+      state.version = version;
+      renderFilename();
+      save();
+      setStatus("Downloaded " + filename + " at " + stamp() +
+                " — upload this one; open and read it first");
     } catch (err) {
       setStatus("PDF failed — see the message");
       alert("Something went wrong building the PDF:\n\n" + err.message +
@@ -529,10 +565,7 @@ function startComposer(config) {
       input.value = state.meta[pair[1]] || "";
       input.addEventListener("input", function () {
         state.meta[pair[1]] = input.value;
-        document.getElementById("filename-preview").innerHTML =
-          "Your file will be named <code>" + config.setId + "_" +
-          (slug(state.meta.last) || "lastname") + "_" +
-          (slug(state.meta.first) || "firstname") + ".pdf</code>.";
+        renderFilename();
         scheduleSave();
       });
     });
@@ -587,6 +620,7 @@ function startComposer(config) {
           state.checks = loaded.checks || state.checks;
           state.files = loaded.files || [];
           state.hours = loaded.hours || "";
+          state.version = loaded.version || 0;
           renderProblems();
           renderFiles();
           bindMetaValues();
@@ -614,6 +648,7 @@ function startComposer(config) {
     document.getElementById("check1").value = state.checks.check1 || "";
     document.getElementById("check2").value = state.checks.check2 || "";
     document.getElementById("hours").value = state.hours || "";
+    renderFilename();
   }
 
   /* ------------------------------------------------------------- start up  */
@@ -644,6 +679,7 @@ function startComposer(config) {
         state.checks = saved.checks || state.checks;
         state.files = saved.files || [];
         state.hours = saved.hours || "";
+        state.version = saved.version || 0;
       }
       document.getElementById("loading").hidden = true;
       document.getElementById("composer").hidden = false;
