@@ -13,14 +13,53 @@
 
 .split { display: flex; gap: 0; align-items: stretch; min-height: 70vh; }
 
+.split { --pdf-w: 44%; }
+
 .pane-pdf {
-  flex: 0 0 44%;
+  flex: 0 0 var(--pdf-w);
+  min-width: 0;
   border-right: 1px solid var(--line);
   position: sticky;
   top: 0;
   height: 100vh;
   background: var(--bg-soft);
 }
+
+/* Drag handle between the two panes. Students read at different zoom levels and
+   on very different screens, so the split is theirs to set, and it is remembered. */
+.pane-grip {
+  flex: 0 0 8px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background: var(--line);
+  cursor: col-resize;
+  touch-action: none;
+}
+
+.pane-grip:hover, .pane-grip.dragging { background: var(--som-blue); }
+
+body.pdf-hidden .pane-grip { display: none; }
+
+body.resizing { cursor: col-resize; user-select: none; }
+
+.pane-size-btns { display: flex; gap: 0.2rem; }
+
+.pane-size-btns button {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: 0;
+  border-radius: 3px;
+  padding: 0.15rem 0.4rem;
+  font: 600 0.72rem/1.4 inherit;
+  cursor: pointer;
+}
+
+.pane-size-btns button:hover { background: rgba(255, 255, 255, 0.35); }
+
+.pane-size-btns button[aria-pressed="true"] { background: #fff; color: var(--som-blue); }
+
+@media (max-width: 900px) { .pane-grip { display: none; } }
 
 .pane-pdf-head {
   display: flex; align-items: center; justify-content: space-between; gap: 0.6rem;
@@ -204,11 +243,20 @@ input:focus, textarea:focus { outline: 2px solid var(--som-blue); outline-offset
 
   <div class="pane-pdf">
     <div class="pane-pdf-head">
-      Problem Set 2 &mdash; questions
+      <span class="pane-size-btns" role="group" aria-label="Width of the questions pane">
+        <button type="button" data-width="33">&frac13;</button>
+        <button type="button" data-width="44">Default</button>
+        <button type="button" data-width="50">&frac12;</button>
+        <button type="button" data-width="65">&frac23;</button>
+      </span>
       <a href="../files/ps2/ps2_questions.pdf" target="_blank" rel="noopener">Open the PDF</a>
     </div>
     <div class="pane-pdf-scroll" id="question-pages"></div>
   </div>
+
+  <div class="pane-grip" id="pane-grip" role="separator" aria-orientation="vertical"
+       aria-label="Width of the questions pane" aria-valuemin="20" aria-valuemax="70"
+       tabindex="0" title="Drag to resize, or use the arrow keys"></div>
 
   <div class="pane-form">
     <div id="loading">Loading the problem set&hellip;</div>
@@ -275,9 +323,11 @@ input:focus, textarea:focus { outline: 2px solid var(--som-blue); outline-offset
 
       <div class="problem-block">
         <div class="problem-head"><h2>One Last Question <span class="part-pts">ungraded, but required</span></h2></div>
-        <div class="part">
+        <div class="part" id="hours-card">
           <p class="part-stub">Roughly how many hours did this problem set take you, start
-          to finish, including assembling the PDF? A single number or a range is fine.</p>
+          to finish, including assembling the PDF? A single number or a range is fine.
+          It is not graded, but it is required &mdash; it is how I find out whether a set
+          is the right length.</p>
           <input type="text" id="hours" placeholder="e.g. 6, or 5-7 hours">
         </div>
       </div>

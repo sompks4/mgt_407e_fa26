@@ -148,6 +148,80 @@ function startComposer(config) {
     });
   }
 
+  /* ------------------------------------------------------- the split pane  */
+
+  /* The reading pane's width is the student's to set -- by dragging the grip, by
+     the preset buttons, or with the arrow keys when the grip has focus. Stored
+     per browser in localStorage, separately from the draft, since it is a display
+     preference rather than part of their work. */
+  function setupSplitter() {
+    var split = document.querySelector(".split");
+    var grip = document.getElementById("pane-grip");
+    if (!split || !grip) return;
+    var KEY = "mgt407e-panewidth";
+    var MIN = 20, MAX = 70;
+
+    function apply(pct, remember) {
+      pct = Math.max(MIN, Math.min(MAX, Math.round(pct)));
+      split.style.setProperty("--pdf-w", pct + "%");
+      grip.setAttribute("aria-valuenow", String(pct));
+      var buttons = document.querySelectorAll(".pane-size-btns button");
+      Array.prototype.forEach.call(buttons, function (b) {
+        b.setAttribute("aria-pressed", Number(b.dataset.width) === pct ? "true" : "false");
+      });
+      if (remember) {
+        try { localStorage.setItem(KEY, String(pct)); } catch (e) { /* private mode */ }
+      }
+      return pct;
+    }
+
+    var stored = null;
+    try { stored = localStorage.getItem(KEY); } catch (e) { stored = null; }
+    apply(stored ? Number(stored) : 44, false);
+
+    function pctFromX(clientX) {
+      var box = split.getBoundingClientRect();
+      return ((clientX - box.left) / box.width) * 100;
+    }
+
+    grip.addEventListener("pointerdown", function (ev) {
+      ev.preventDefault();
+      grip.setPointerCapture(ev.pointerId);
+      grip.classList.add("dragging");
+      document.body.classList.add("resizing");
+    });
+    grip.addEventListener("pointermove", function (ev) {
+      if (!grip.classList.contains("dragging")) return;
+      apply(pctFromX(ev.clientX), false);
+    });
+    ["pointerup", "pointercancel"].forEach(function (type) {
+      grip.addEventListener(type, function (ev) {
+        if (!grip.classList.contains("dragging")) return;
+        grip.classList.remove("dragging");
+        document.body.classList.remove("resizing");
+        apply(pctFromX(ev.clientX), true);
+      });
+    });
+    grip.addEventListener("keydown", function (ev) {
+      var now = Number(grip.getAttribute("aria-valuenow")) || 44;
+      if (ev.key === "ArrowLeft") apply(now - 2, true);
+      else if (ev.key === "ArrowRight") apply(now + 2, true);
+      else return;
+      ev.preventDefault();
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll(".pane-size-btns button"),
+      function (btn) {
+        btn.addEventListener("click", function () {
+          if (document.body.classList.contains("pdf-hidden")) {
+            document.body.classList.remove("pdf-hidden");
+            document.getElementById("toggle-pdf").textContent = "Hide questions";
+          }
+          apply(Number(btn.dataset.width), true);
+        });
+      });
+  }
+
   /* ------------------------------------------------------------ file naming */
 
   /* Every generated PDF carries its own version number, so a student who
@@ -158,6 +232,13 @@ function startComposer(config) {
       (slug(state.meta.last) || "lastname") + "_" +
       (slug(state.meta.first) || "firstname") +
       "_v" + version + ".pdf";
+  }
+
+  /* The time question is ungraded, so it sits outside the progress count -- give it
+     the same green edge as an answered part so a blank one is still visible. */
+  function markHours() {
+    var card = document.getElementById("hours-card");
+    if (card) card.classList.toggle("answered", state.hours.trim().length > 0);
   }
 
   function renderFilename() {
@@ -529,10 +610,14 @@ function startComposer(config) {
         }
       });
     });
+    // "One Last Question" is ungraded but required, so it belongs in this warning
+    // even though it is not one of the graded parts.
+    if (!state.hours.trim()) missing.push("the time estimate at the end");
+
     if (missing.length) {
       var shown = missing.slice(0, 14).join(", ");
       if (missing.length > 14) shown += ", and " + (missing.length - 14) + " more";
-      if (!confirm("These graded parts have no answer yet:\n\n" + shown +
+      if (!confirm("These are still unanswered:\n\n" + shown +
                    "\n\nGenerate the PDF anyway? They will be marked [left blank].")) {
         return;
       }
@@ -579,7 +664,11 @@ function startComposer(config) {
     });
     var hours = document.getElementById("hours");
     hours.value = state.hours || "";
-    hours.addEventListener("input", function () { state.hours = hours.value; scheduleSave(); });
+    hours.addEventListener("input", function () {
+      state.hours = hours.value;
+      markHours();
+      scheduleSave();
+    });
 
     document.getElementById("add-file").addEventListener("click", function () {
       state.files.push({ name: "", note: "" });
@@ -649,6 +738,7 @@ function startComposer(config) {
     document.getElementById("check2").value = state.checks.check2 || "";
     document.getElementById("hours").value = state.hours || "";
     renderFilename();
+    markHours();
   }
 
   /* ------------------------------------------------------------- start up  */
@@ -687,6 +777,7 @@ function startComposer(config) {
       renderFiles();
       bindMeta();
       bindMetaValues();
+      setupSplitter();
       updateProgress();
       setStatus(saved ? "Draft restored" : "Ready");
     })
