@@ -1,0 +1,307 @@
+date,hometeam,awayteam,homegoals,awaygoals,ghost
+2019-08-16,Bayern Munich,Hertha,2,2,0
+2019-08-17,Dortmund,Augsburg,5,1,0
+2019-08-17,Freiburg,Mainz,3,0,0
+2019-08-17,Leverkusen,Paderborn,3,2,0
+2019-08-17,Werder Bremen,Fortuna Dusseldorf,1,3,0
+2019-08-17,Wolfsburg,FC Koln,2,1,0
+2019-08-17,M'gladbach,Schalke 04,0,0,0
+2019-08-18,Ein Frankfurt,Hoffenheim,1,0,0
+2019-08-18,Union Berlin,RB Leipzig,0,4,0
+2019-08-23,FC Koln,Dortmund,1,3,0
+2019-08-24,Schalke 04,Bayern Munich,0,3,0
+2019-08-24,Paderborn,Freiburg,1,3,0
+2019-08-24,Mainz,M'gladbach,1,3,0
+2019-08-24,Augsburg,Union Berlin,1,1,0
+2019-08-24,Fortuna Dusseldorf,Leverkusen,1,3,0
+2019-08-24,Hoffenheim,Werder Bremen,3,2,0
+2019-08-25,RB Leipzig,Ein Frankfurt,2,1,0
+2019-08-25,Hertha,Wolfsburg,0,3,0
+2019-08-30,M'gladbach,RB Leipzig,1,3,0
+2019-08-31,Wolfsburg,Paderborn,1,1,0
+2019-08-31,Union Berlin,Dortmund,3,1,0
+2019-08-31,Schalke 04,Hertha,3,0,0
+2019-08-31,Bayern Munich,Mainz,6,1,0
+2019-08-31,Freiburg,FC Koln,1,2,0
+2019-08-31,Leverkusen,Hoffenheim,0,0,0
+2019-09-01,Werder Bremen,Augsburg,3,2,0
+2019-09-01,Ein Frankfurt,Fortuna Dusseldorf,2,1,0
+2019-09-13,Fortuna Dusseldorf,Wolfsburg,1,1,0
+2019-09-14,Augsburg,Ein Frankfurt,2,1,0
+2019-09-14,Dortmund,Leverkusen,4,0,0
+2019-09-14,FC Koln,M'gladbach,0,1,0
+2019-09-14,Mainz,Hertha,2,1,0
+2019-09-14,Union Berlin,Werder Bremen,1,2,0
+2019-09-14,RB Leipzig,Bayern Munich,1,1,0
+2019-09-15,Hoffenheim,Freiburg,0,3,0
+2019-09-15,Paderborn,Schalke 04,1,5,0
+2019-09-20,Schalke 04,Mainz,2,1,0
+2019-09-21,Werder Bremen,RB Leipzig,0,3,0
+2019-09-21,Leverkusen,Union Berlin,2,0,0
+2019-09-21,Bayern Munich,FC Koln,4,0,0
+2019-09-21,Freiburg,Augsburg,1,1,0
+2019-09-21,Hertha,Paderborn,2,1,0
+2019-09-22,M'gladbach,Fortuna Dusseldorf,2,1,0
+2019-09-22,Ein Frankfurt,Dortmund,2,2,0
+2019-09-23,Wolfsburg,Hoffenheim,1,1,0
+2019-09-27,Union Berlin,Ein Frankfurt,1,2,0
+2019-09-28,Augsburg,Leverkusen,0,3,0
+2019-09-28,Hoffenheim,M'gladbach,0,3,0
+2019-09-28,Paderborn,Bayern Munich,2,3,0
+2019-09-28,RB Leipzig,Schalke 04,1,3,0
+2019-09-28,Dortmund,Werder Bremen,2,2,0
+2019-09-28,Mainz,Wolfsburg,0,1,0
+2019-09-29,Fortuna Dusseldorf,Freiburg,1,2,0
+2019-09-29,FC Koln,Hertha,0,4,0
+2019-10-04,Hertha,Fortuna Dusseldorf,3,1,0
+2019-10-05,Paderborn,Mainz,1,2,0
+2019-10-05,Schalke 04,FC Koln,1,1,0
+2019-10-05,Leverkusen,RB Leipzig,1,1,0
+2019-10-05,Bayern Munich,Hoffenheim,1,2,0
+2019-10-05,Freiburg,Dortmund,2,2,0
+2019-10-06,M'gladbach,Augsburg,5,1,0
+2019-10-06,Wolfsburg,Union Berlin,1,0,0
+2019-10-06,Ein Frankfurt,Werder Bremen,2,2,0
+2019-10-18,Ein Frankfurt,Leverkusen,3,0,0
+2019-10-19,Dortmund,M'gladbach,1,0,0
+2019-10-19,Werder Bremen,Hertha,1,1,0
+2019-10-19,Union Berlin,Freiburg,2,0,0
+2019-10-19,RB Leipzig,Wolfsburg,1,1,0
+2019-10-19,Augsburg,Bayern Munich,2,2,0
+2019-10-19,Fortuna Dusseldorf,Mainz,1,0,0
+2019-10-20,FC Koln,Paderborn,3,0,0
+2019-10-20,Hoffenheim,Schalke 04,2,0,0
+2019-10-25,Mainz,FC Koln,3,1,0
+2019-10-26,Schalke 04,Dortmund,0,0,0
+2019-10-26,Leverkusen,Werder Bremen,2,2,0
+2019-10-26,Paderborn,Fortuna Dusseldorf,2,0,0
+2019-10-26,Hertha,Hoffenheim,2,3,0
+2019-10-26,Freiburg,RB Leipzig,2,1,0
+2019-10-26,Bayern Munich,Union Berlin,2,1,0
+2019-10-27,Wolfsburg,Augsburg,0,0,0
+2019-10-27,M'gladbach,Ein Frankfurt,4,2,0
+2019-11-01,Hoffenheim,Paderborn,3,0,0
+2019-11-02,Dortmund,Wolfsburg,3,0,0
+2019-11-02,Ein Frankfurt,Bayern Munich,5,1,0
+2019-11-02,Leverkusen,M'gladbach,1,2,0
+2019-11-02,RB Leipzig,Mainz,8,0,0
+2019-11-02,Werder Bremen,Freiburg,2,2,0
+2019-11-02,Union Berlin,Hertha,1,0,0
+2019-11-03,Fortuna Dusseldorf,FC Koln,2,0,0
+2019-11-03,Augsburg,Schalke 04,2,3,0
+2019-11-08,FC Koln,Hoffenheim,1,2,0
+2019-11-09,Bayern Munich,Dortmund,4,0,0
+2019-11-09,Schalke 04,Fortuna Dusseldorf,3,3,0
+2019-11-09,Paderborn,Augsburg,0,1,0
+2019-11-09,Mainz,Union Berlin,2,3,0
+2019-11-09,Hertha,RB Leipzig,2,4,0
+2019-11-10,M'gladbach,Werder Bremen,3,1,0
+2019-11-10,Wolfsburg,Leverkusen,0,2,0
+2019-11-10,Freiburg,Ein Frankfurt,1,0,0
+2019-11-22,Dortmund,Paderborn,3,3,0
+2019-11-23,RB Leipzig,FC Koln,4,1,0
+2019-11-23,Werder Bremen,Schalke 04,1,2,0
+2019-11-23,Union Berlin,M'gladbach,2,0,0
+2019-11-23,Leverkusen,Freiburg,1,1,0
+2019-11-23,Fortuna Dusseldorf,Bayern Munich,0,4,0
+2019-11-23,Ein Frankfurt,Wolfsburg,0,2,0
+2019-11-24,Augsburg,Hertha,4,0,0
+2019-11-24,Hoffenheim,Mainz,1,5,0
+2019-11-29,Schalke 04,Union Berlin,2,1,0
+2019-11-30,Paderborn,RB Leipzig,2,3,0
+2019-11-30,Hoffenheim,Fortuna Dusseldorf,1,1,0
+2019-11-30,Bayern Munich,Leverkusen,1,2,0
+2019-11-30,FC Koln,Augsburg,1,1,0
+2019-11-30,Hertha,Dortmund,1,2,0
+2019-12-01,M'gladbach,Freiburg,4,2,0
+2019-12-01,Wolfsburg,Werder Bremen,2,3,0
+2019-12-02,Mainz,Ein Frankfurt,2,1,0
+2019-12-06,Ein Frankfurt,Hertha,2,2,0
+2019-12-07,Leverkusen,Schalke 04,2,1,0
+2019-12-07,RB Leipzig,Hoffenheim,3,1,0
+2019-12-07,M'gladbach,Bayern Munich,2,1,0
+2019-12-07,Freiburg,Wolfsburg,1,0,0
+2019-12-07,Augsburg,Mainz,2,1,0
+2019-12-07,Dortmund,Fortuna Dusseldorf,5,0,0
+2019-12-08,Union Berlin,FC Koln,2,0,0
+2019-12-08,Werder Bremen,Paderborn,0,1,0
+2019-12-13,Hoffenheim,Augsburg,2,4,0
+2019-12-14,Fortuna Dusseldorf,RB Leipzig,0,3,0
+2019-12-14,Mainz,Dortmund,0,4,0
+2019-12-14,Paderborn,Union Berlin,1,1,0
+2019-12-14,FC Koln,Leverkusen,2,0,0
+2019-12-14,Bayern Munich,Werder Bremen,6,1,0
+2019-12-14,Hertha,Freiburg,1,0,0
+2019-12-15,Wolfsburg,M'gladbach,2,1,0
+2019-12-15,Schalke 04,Ein Frankfurt,1,0,0
+2019-12-17,Werder Bremen,Mainz,0,5,0
+2019-12-17,Augsburg,Fortuna Dusseldorf,3,0,0
+2019-12-17,Dortmund,RB Leipzig,3,3,0
+2019-12-17,Union Berlin,Hoffenheim,0,2,0
+2019-12-18,Wolfsburg,Schalke 04,1,1,0
+2019-12-18,M'gladbach,Paderborn,2,0,0
+2019-12-18,Ein Frankfurt,FC Koln,2,4,0
+2019-12-18,Leverkusen,Hertha,0,1,0
+2019-12-18,Freiburg,Bayern Munich,1,3,0
+2019-12-20,Hoffenheim,Dortmund,2,1,0
+2019-12-21,Schalke 04,Freiburg,2,2,0
+2019-12-21,Bayern Munich,Wolfsburg,2,0,0
+2019-12-21,FC Koln,Werder Bremen,1,0,0
+2019-12-21,Mainz,Leverkusen,0,1,0
+2019-12-21,RB Leipzig,Augsburg,3,1,0
+2019-12-21,Hertha,M'gladbach,0,0,0
+2019-12-22,Paderborn,Ein Frankfurt,2,1,0
+2019-12-22,Fortuna Dusseldorf,Union Berlin,2,1,0
+2020-01-17,Schalke 04,M'gladbach,2,0,0
+2020-01-18,Augsburg,Dortmund,3,5,0
+2020-01-18,FC Koln,Wolfsburg,3,1,0
+2020-01-18,Fortuna Dusseldorf,Werder Bremen,0,1,0
+2020-01-18,Hoffenheim,Ein Frankfurt,1,2,0
+2020-01-18,Mainz,Freiburg,1,2,0
+2020-01-18,RB Leipzig,Union Berlin,3,1,0
+2020-01-19,Paderborn,Leverkusen,1,4,0
+2020-01-19,Hertha,Bayern Munich,0,4,0
+2020-01-24,Dortmund,FC Koln,5,1,0
+2020-01-25,Ein Frankfurt,RB Leipzig,2,0,0
+2020-01-25,Freiburg,Paderborn,0,2,0
+2020-01-25,M'gladbach,Mainz,3,1,0
+2020-01-25,Union Berlin,Augsburg,2,0,0
+2020-01-25,Wolfsburg,Hertha,1,2,0
+2020-01-25,Bayern Munich,Schalke 04,5,0,0
+2020-01-26,Werder Bremen,Hoffenheim,0,3,0
+2020-01-26,Leverkusen,Fortuna Dusseldorf,3,0,0
+2020-01-31,Hertha,Schalke 04,0,0,0
+2020-02-01,Augsburg,Werder Bremen,2,1,0
+2020-02-01,Dortmund,Union Berlin,5,0,0
+2020-02-01,Fortuna Dusseldorf,Ein Frankfurt,1,1,0
+2020-02-01,Hoffenheim,Leverkusen,2,1,0
+2020-02-01,Mainz,Bayern Munich,1,3,0
+2020-02-01,RB Leipzig,M'gladbach,2,2,0
+2020-02-02,FC Koln,Freiburg,4,0,0
+2020-02-02,Paderborn,Wolfsburg,2,4,0
+2020-02-07,Ein Frankfurt,Augsburg,5,0,0
+2020-02-08,Freiburg,Hoffenheim,1,0,0
+2020-02-08,Hertha,Mainz,1,3,0
+2020-02-08,Schalke 04,Paderborn,1,1,0
+2020-02-08,Werder Bremen,Union Berlin,0,2,0
+2020-02-08,Wolfsburg,Fortuna Dusseldorf,1,1,0
+2020-02-08,Leverkusen,Dortmund,4,3,0
+2020-02-09,Bayern Munich,RB Leipzig,0,0,0
+2020-02-14,Dortmund,Ein Frankfurt,4,0,0
+2020-02-15,Union Berlin,Leverkusen,2,3,0
+2020-02-15,Fortuna Dusseldorf,M'gladbach,1,4,0
+2020-02-15,RB Leipzig,Werder Bremen,3,0,0
+2020-02-15,Augsburg,Freiburg,1,1,0
+2020-02-15,Hoffenheim,Wolfsburg,2,3,0
+2020-02-15,Paderborn,Hertha,1,2,0
+2020-02-16,FC Koln,Bayern Munich,1,4,0
+2020-02-16,Mainz,Schalke 04,0,0,0
+2020-02-21,Bayern Munich,Paderborn,3,2,0
+2020-02-22,Freiburg,Fortuna Dusseldorf,0,2,0
+2020-02-22,Hertha,FC Koln,0,5,0
+2020-02-22,M'gladbach,Hoffenheim,1,1,0
+2020-02-22,Werder Bremen,Dortmund,0,2,0
+2020-02-22,Schalke 04,RB Leipzig,0,5,0
+2020-02-23,Leverkusen,Augsburg,2,0,0
+2020-02-23,Wolfsburg,Mainz,4,0,0
+2020-02-24,Ein Frankfurt,Union Berlin,1,2,0
+2020-02-28,Fortuna Dusseldorf,Hertha,3,3,0
+2020-02-29,FC Koln,Schalke 04,3,0,0
+2020-02-29,Mainz,Paderborn,2,0,0
+2020-02-29,Dortmund,Freiburg,1,0,0
+2020-02-29,Augsburg,M'gladbach,2,3,0
+2020-02-29,Hoffenheim,Bayern Munich,0,6,0
+2020-03-01,Union Berlin,Wolfsburg,2,2,0
+2020-03-01,RB Leipzig,Leverkusen,1,1,0
+2020-03-06,Paderborn,FC Koln,1,2,0
+2020-03-07,Freiburg,Union Berlin,3,1,0
+2020-03-07,Hertha,Werder Bremen,2,2,0
+2020-03-07,Leverkusen,Ein Frankfurt,4,0,0
+2020-03-07,Schalke 04,Hoffenheim,1,1,0
+2020-03-07,Wolfsburg,RB Leipzig,0,0,0
+2020-03-07,M'gladbach,Dortmund,1,2,0
+2020-03-08,Mainz,Fortuna Dusseldorf,1,1,0
+2020-03-08,Bayern Munich,Augsburg,2,0,0
+2020-03-11,M'gladbach,FC Koln,2,1,0
+2020-05-16,RB Leipzig,Freiburg,1,1,1
+2020-05-16,Ein Frankfurt,M'gladbach,1,3,1
+2020-05-16,Hoffenheim,Hertha,0,3,1
+2020-05-16,Dortmund,Schalke 04,4,0,1
+2020-05-16,Augsburg,Wolfsburg,1,2,1
+2020-05-16,Fortuna Dusseldorf,Paderborn,0,0,1
+2020-05-17,FC Koln,Mainz,2,2,1
+2020-05-17,Union Berlin,Bayern Munich,0,2,1
+2020-05-18,Werder Bremen,Leverkusen,1,4,1
+2020-05-22,Hertha,Union Berlin,4,0,1
+2020-05-23,Wolfsburg,Dortmund,0,2,1
+2020-05-23,Freiburg,Werder Bremen,0,1,1
+2020-05-23,M'gladbach,Leverkusen,1,3,1
+2020-05-23,Paderborn,Hoffenheim,1,1,1
+2020-05-23,Bayern Munich,Ein Frankfurt,5,2,1
+2020-05-24,Schalke 04,Augsburg,0,3,1
+2020-05-24,Mainz,RB Leipzig,0,5,1
+2020-05-24,FC Koln,Fortuna Dusseldorf,2,2,1
+2020-05-26,Werder Bremen,M'gladbach,0,0,1
+2020-05-26,Leverkusen,Wolfsburg,1,4,1
+2020-05-26,Dortmund,Bayern Munich,0,1,1
+2020-05-26,Ein Frankfurt,Freiburg,3,3,1
+2020-05-27,Union Berlin,Mainz,1,1,1
+2020-05-27,Hoffenheim,FC Koln,3,1,1
+2020-05-27,RB Leipzig,Hertha,2,2,1
+2020-05-27,Augsburg,Paderborn,0,0,1
+2020-05-27,Fortuna Dusseldorf,Schalke 04,2,1,1
+2020-05-29,Freiburg,Leverkusen,0,1,1
+2020-05-30,Hertha,Augsburg,2,0,1
+2020-05-30,Mainz,Hoffenheim,0,1,1
+2020-05-30,Schalke 04,Werder Bremen,0,1,1
+2020-05-30,Wolfsburg,Ein Frankfurt,1,2,1
+2020-05-30,Bayern Munich,Fortuna Dusseldorf,5,0,1
+2020-05-31,M'gladbach,Union Berlin,4,1,1
+2020-05-31,Paderborn,Dortmund,1,6,1
+2020-06-01,FC Koln,RB Leipzig,2,4,1
+2020-06-03,Werder Bremen,Ein Frankfurt,0,3,1
+2020-06-05,Freiburg,M'gladbach,1,0,1
+2020-06-06,Fortuna Dusseldorf,Hoffenheim,2,2,1
+2020-06-06,Dortmund,Hertha,1,0,1
+2020-06-06,RB Leipzig,Paderborn,1,1,1
+2020-06-06,Ein Frankfurt,Mainz,0,2,1
+2020-06-06,Leverkusen,Bayern Munich,2,4,1
+2020-06-07,Werder Bremen,Wolfsburg,0,1,1
+2020-06-07,Union Berlin,Schalke 04,1,1,1
+2020-06-07,Augsburg,FC Koln,1,1,1
+2020-06-12,Hoffenheim,RB Leipzig,0,2,1
+2020-06-13,FC Koln,Union Berlin,1,2,1
+2020-06-13,Fortuna Dusseldorf,Dortmund,0,1,1
+2020-06-13,Hertha,Ein Frankfurt,1,4,1
+2020-06-13,Paderborn,Werder Bremen,1,5,1
+2020-06-13,Wolfsburg,Freiburg,2,2,1
+2020-06-13,Bayern Munich,M'gladbach,2,1,1
+2020-06-14,Schalke 04,Leverkusen,1,1,1
+2020-06-14,Mainz,Augsburg,0,1,1
+2020-06-16,Werder Bremen,Bayern Munich,0,1,1
+2020-06-16,Union Berlin,Paderborn,1,0,1
+2020-06-16,M'gladbach,Wolfsburg,3,0,1
+2020-06-16,Freiburg,Hertha,2,1,1
+2020-06-17,Ein Frankfurt,Schalke 04,2,1,1
+2020-06-17,Augsburg,Hoffenheim,1,3,1
+2020-06-17,Dortmund,Mainz,0,2,1
+2020-06-17,Leverkusen,FC Koln,3,1,1
+2020-06-17,RB Leipzig,Fortuna Dusseldorf,2,2,1
+2020-06-20,Mainz,Werder Bremen,3,1,1
+2020-06-20,Paderborn,M'gladbach,1,3,1
+2020-06-20,Hoffenheim,Union Berlin,4,0,1
+2020-06-20,RB Leipzig,Dortmund,0,2,1
+2020-06-20,Fortuna Dusseldorf,Augsburg,1,1,1
+2020-06-20,FC Koln,Ein Frankfurt,1,1,1
+2020-06-20,Bayern Munich,Freiburg,3,1,1
+2020-06-20,Hertha,Leverkusen,2,0,1
+2020-06-20,Schalke 04,Wolfsburg,1,4,1
+2020-06-27,M'gladbach,Hertha,2,1,1
+2020-06-27,Union Berlin,Fortuna Dusseldorf,3,0,1
+2020-06-27,Leverkusen,Mainz,1,0,1
+2020-06-27,Werder Bremen,FC Koln,6,1,1
+2020-06-27,Ein Frankfurt,Paderborn,3,2,1
+2020-06-27,Dortmund,Hoffenheim,0,4,1
+2020-06-27,Augsburg,RB Leipzig,1,2,1
+2020-06-27,Freiburg,Schalke 04,4,0,1
+2020-06-27,Wolfsburg,Bayern Munich,0,4,1

@@ -1,0 +1,203 @@
+/* MGT 407E course site -- shared styles.
+   Yale SOM blue matches the somblue used in the problem-set LaTeX preamble. */
+
+:root {
+  --som-blue: #00356b;
+  --som-blue-light: #eaf0f7;
+  --ink: #1a1a1a;
+  --muted: #5a6673;
+  --line: #d8dee6;
+  --bg: #ffffff;
+  --bg-soft: #f6f8fa;
+  --accent: #b8860b;
+  --ok: #1c7c3c;
+  --warn: #9a3412;
+  --radius: 6px;
+  --maxw: 60rem;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.6 Georgia, "Iowan Old Style", "Times New Roman", serif;
+}
+
+/* ---------- masthead and nav ---------- */
+
+header.masthead {
+  background: var(--som-blue);
+  color: #fff;
+  padding: 1.4rem 1.25rem 0;
+}
+
+.masthead-inner { max-width: var(--maxw); margin: 0 auto; }
+
+.masthead .course-num {
+  font: 600 0.8rem/1 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.masthead h1 {
+  margin: 0.35rem 0 0.15rem;
+  font-size: 1.7rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.masthead .tagline { margin: 0 0 1rem; opacity: 0.9; font-size: 0.95rem; }
+
+nav.site-nav { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+
+nav.site-nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--radius) var(--radius) 0 0;
+  font: 500 0.9rem/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  opacity: 0.85;
+}
+
+nav.site-nav a:hover { background: rgba(255, 255, 255, 0.14); opacity: 1; }
+
+nav.site-nav a[aria-current="page"] {
+  background: var(--bg);
+  color: var(--som-blue);
+  opacity: 1;
+  font-weight: 600;
+}
+
+/* ---------- page body ---------- */
+
+main { max-width: var(--maxw); margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+
+main.wide { max-width: 78rem; }
+
+h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--som-blue);
+  margin: 2.2rem 0 0.6rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--line);
+}
+
+h2:first-child { margin-top: 0; }
+
+h3 { font-size: 1.05rem; font-weight: 600; margin: 1.5rem 0 0.4rem; }
+
+p { margin: 0.7rem 0; }
+
+a { color: var(--som-blue); }
+
+ul, ol { padding-left: 1.3rem; }
+
+li { margin: 0.35rem 0; }
+
+code, .mono {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.88em;
+  background: var(--bg-soft);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+
+.lede { font-size: 1.05rem; color: var(--muted); }
+
+.note {
+  background: var(--som-blue-light);
+  border-left: 3px solid var(--som-blue);
+  padding: 0.8rem 1rem;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin: 1.2rem 0;
+  font-size: 0.95rem;
+}
+
+.note.warn { background: #fdf3ec; border-left-color: var(--warn); }
+
+.note p:first-child { margin-top: 0; }
+.note p:last-child { margin-bottom: 0; }
+
+/* ---------- tables ---------- */
+
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.95rem; }
+
+th, td { text-align: left; padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--line); }
+
+th {
+  font: 600 0.78rem/1.3 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+tbody tr:hover { background: var(--bg-soft); }
+
+/* ---------- cards and buttons ---------- */
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.25rem;
+  margin: 1rem 0;
+  background: var(--bg);
+}
+
+.card h3 { margin-top: 0; }
+
+.btn {
+  display: inline-block;
+  background: var(--som-blue);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--som-blue);
+  border-radius: var(--radius);
+  font: 600 0.92rem/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  cursor: pointer;
+}
+
+.btn:hover { background: #002548; }
+
+.btn.secondary { background: #fff; color: var(--som-blue); }
+
+.btn.secondary:hover { background: var(--som-blue-light); }
+
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.btn-row { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; margin: 1rem 0; }
+
+.tag {
+  display: inline-block;
+  background: var(--som-blue-light);
+  color: var(--som-blue);
+  font: 600 0.72rem/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  vertical-align: 0.1em;
+}
+
+.tag.grey { background: var(--bg-soft); color: var(--muted); }
+
+footer.site-foot {
+  border-top: 1px solid var(--line);
+  margin-top: 3rem;
+  padding: 1.2rem 1.25rem 2.5rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+footer.site-foot .foot-inner { max-width: var(--maxw); margin: 0 auto; }
+
+@media (max-width: 640px) {
+  .masthead h1 { font-size: 1.35rem; }
+  main { padding: 1.4rem 1rem 3rem; }
+}

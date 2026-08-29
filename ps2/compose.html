@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PS2 Answer Builder — MGT 407E</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+/* ---- composer-specific layout ---- */
+
+.composer-body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+
+.split { display: flex; gap: 0; align-items: stretch; min-height: 70vh; }
+
+.pane-pdf {
+  flex: 0 0 44%;
+  border-right: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background: var(--bg-soft);
+}
+
+.pane-pdf-head {
+  display: flex; align-items: center; justify-content: space-between; gap: 0.6rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--som-blue); color: #fff;
+  font-size: 0.82rem; font-weight: 600;
+}
+
+.pane-pdf-head a { color: #fff; font-weight: 500; }
+
+.pane-pdf-scroll {
+  height: calc(100vh - 2.2rem);
+  overflow-y: auto;
+  padding: 0.75rem;
+  background: #55595e;
+}
+
+/* Page images, not an embedded PDF: Chrome's PDF plugin renders blank inside a
+   narrow iframe, and images work the same on every browser and on phones. */
+.pane-pdf-scroll img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto 0.75rem;
+  background: #fff;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.pane-form { flex: 1 1 auto; min-width: 0; padding: 1.5rem 1.5rem 8rem; }
+
+body.pdf-hidden .pane-pdf { display: none; }
+
+@media (max-width: 900px) {
+  .pane-pdf { display: none; }
+  .pane-form { padding: 1.2rem 1rem 9rem; }
+}
+
+/* ---- form pieces ---- */
+
+.meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: 0.8rem; }
+
+label.field { display: block; font-size: 0.82rem; font-weight: 600; color: var(--muted); margin-bottom: 0.25rem; }
+
+input[type="text"], textarea, input[type="number"] {
+  width: 100%;
+  font: 15px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.5rem 0.6rem;
+  background: #fff;
+}
+
+textarea { resize: vertical; min-height: 6.5rem; }
+
+input:focus, textarea:focus { outline: 2px solid var(--som-blue); outline-offset: -1px; border-color: var(--som-blue); }
+
+.problem-block { margin: 2.2rem 0 0; }
+
+.problem-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  border-bottom: 2px solid var(--som-blue);
+  padding-bottom: 0.4rem;
+  margin-bottom: 0.9rem;
+}
+
+.problem-head h2 { border: 0; margin: 0; font-size: 1.15rem; }
+
+.part {
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--som-blue);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 0.85rem 1rem;
+  margin: 0.8rem 0;
+  background: #fff;
+}
+
+.part.ungraded { border-left-color: var(--line); background: var(--bg-soft); }
+
+.part.answered { border-left-color: var(--ok); }
+
+.part-head { display: flex; align-items: baseline; gap: 0.55rem; margin-bottom: 0.35rem; flex-wrap: wrap; }
+
+.part-id { font-weight: 700; font-size: 0.95rem; color: var(--som-blue); }
+
+.part-pts { font-size: 0.78rem; color: var(--muted); font-weight: 600; }
+
+.part-stub { font-size: 0.88rem; color: var(--muted); margin: 0 0 0.55rem; line-height: 1.45; }
+
+.attach-row { display: flex; align-items: center; gap: 0.6rem; margin-top: 0.5rem; flex-wrap: wrap; }
+
+.attach-hint { font-size: 0.78rem; color: var(--muted); }
+
+.btn-sm { font-size: 0.8rem; padding: 0.32rem 0.7rem; }
+
+.thumbs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.55rem; }
+
+.thumb { position: relative; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: #fff; }
+
+.thumb img { display: block; width: 108px; height: 78px; object-fit: cover; }
+
+.thumb button {
+  position: absolute; top: 2px; right: 2px;
+  background: rgba(0, 0, 0, 0.65); color: #fff;
+  border: 0; border-radius: 3px;
+  width: 20px; height: 20px; line-height: 1;
+  cursor: pointer; font-size: 13px;
+}
+
+.file-row { display: grid; grid-template-columns: 1fr 1.4fr auto; gap: 0.5rem; margin-bottom: 0.5rem; align-items: center; }
+
+@media (max-width: 620px) { .file-row { grid-template-columns: 1fr; } }
+
+/* ---- sticky action bar ---- */
+
+.actionbar {
+  position: fixed; left: 0; right: 0; bottom: 0;
+  background: #fff;
+  border-top: 1px solid var(--line);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.07);
+  padding: 0.6rem 1rem;
+  display: flex; align-items: center; gap: 0.7rem; flex-wrap: wrap;
+  z-index: 20;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.actionbar .status { font-size: 0.82rem; color: var(--muted); margin-left: auto; text-align: right; }
+
+.progress-pill {
+  font-size: 0.82rem; font-weight: 600;
+  background: var(--som-blue-light); color: var(--som-blue);
+  padding: 0.3rem 0.7rem; border-radius: 999px;
+}
+
+.progress-pill.complete { background: #e6f4ea; color: var(--ok); }
+
+#loading { padding: 2rem; color: var(--muted); }
+</style>
+</head>
+<body class="composer-body">
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="course-num">MGT 407E &middot; Fall 2026 &middot; Problem Set 2</div>
+    <h1>Answer Builder</h1>
+    <p class="tagline">Type your answers, paste your screenshots, download a PDF for Canvas</p>
+    <nav class="site-nav">
+      <a href="../index.html">Home</a>
+      <a href="../problem-sets.html">Problem Sets</a>
+      <a href="index.html">PS2</a>
+      <a href="../ai-policy.html">AI Policy</a>
+    </nav>
+  </div>
+</header>
+
+<div class="split">
+
+  <div class="pane-pdf">
+    <div class="pane-pdf-head">
+      Problem Set 2 &mdash; questions
+      <a href="../files/ps2/ps2_questions.pdf" target="_blank" rel="noopener">Open the PDF</a>
+    </div>
+    <div class="pane-pdf-scroll" id="question-pages"></div>
+  </div>
+
+  <div class="pane-form">
+    <div id="loading">Loading the problem set&hellip;</div>
+
+    <div id="composer" hidden>
+
+      <div class="note">
+        <p><strong>Your work is saved in this browser as you type</strong> — on this
+        computer, in this browser only. It is not sent anywhere, and I cannot see it. Use
+        <em>Download draft</em> before you switch machines, and keep in mind that clearing
+        your browsing data will clear this too.</p>
+      </div>
+
+      <h2>Your name</h2>
+      <div class="meta-grid">
+        <div>
+          <label class="field" for="meta-last">Last name</label>
+          <input type="text" id="meta-last" autocomplete="family-name">
+        </div>
+        <div>
+          <label class="field" for="meta-first">First name</label>
+          <input type="text" id="meta-first" autocomplete="given-name">
+        </div>
+      </div>
+      <p class="attach-hint" id="filename-preview">Your file will be named <code>ps2_lastname_firstname.pdf</code>.</p>
+
+      <div id="problems"></div>
+
+      <div class="problem-block">
+        <div class="problem-head"><h2>Checking bonus (+2)</h2></div>
+        <p class="part-stub">Optional. PS2 needs <strong>two</strong> distinct checks that
+        you initiated on an AI's output — recomputing one of its numbers, cross-checking it
+        against an outside source, catching an error it made, or something else you thought
+        of. A check that a question itself required does not qualify. Describe each one
+        here and make sure its result is visible somewhere in what you submit.</p>
+        <div class="part">
+          <div class="part-head"><span class="part-id">Check 1</span></div>
+          <textarea id="check1" placeholder="What you checked, how you checked it, and what you found."></textarea>
+        </div>
+        <div class="part">
+          <div class="part-head"><span class="part-id">Check 2</span></div>
+          <textarea id="check2" placeholder="Your second, distinct check."></textarea>
+        </div>
+      </div>
+
+      <div class="problem-block">
+        <div class="problem-head"><h2>Companion files</h2></div>
+        <p class="part-stub">List any files you are uploading to Canvas alongside this PDF
+        — saved simulations, spreadsheets, do-files. They go up as separate attachments on
+        the <em>same</em> Canvas submission; listing them here just tells the grader what to
+        look for.</p>
+        <div id="file-list"></div>
+        <button class="btn secondary btn-sm" id="add-file" type="button">Add a file</button>
+      </div>
+
+      <div class="problem-block">
+        <div class="problem-head"><h2>One Last Question <span class="part-pts">ungraded, but required</span></h2></div>
+        <div class="part">
+          <p class="part-stub">Roughly how many hours did this problem set take you, start
+          to finish, including assembling the PDF? A single number or a range is fine.</p>
+          <input type="text" id="hours" placeholder="e.g. 6, or 5-7 hours">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="actionbar">
+  <button class="btn" id="make-pdf" type="button">Generate PDF</button>
+  <button class="btn secondary btn-sm" id="save-draft" type="button">Download draft</button>
+  <button class="btn secondary btn-sm" id="load-draft" type="button">Load draft</button>
+  <button class="btn secondary btn-sm" id="toggle-pdf" type="button">Hide questions</button>
+  <input type="file" id="draft-input" accept="application/json" hidden>
+  <span class="progress-pill" id="progress">&mdash;</span>
+  <span class="status" id="status">&nbsp;</span>
+</div>
+
+<script src="../assets/vendor/jspdf.umd.min.js"></script>
+<script src="../assets/composer.js"></script>
+<script>
+  startComposer({
+    setId: "ps2",
+    setTitle: "Problem Set 2 - Hypothesis Testing",
+    course: "MGT 407E, Fall 2026",
+    dataUrl: "../assets/ps2.json",
+    pagesDir: "../files/ps2/pages/"
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,269 @@
+{
+  "source": "ps2_body.tex",
+  "problems": [
+    {
+      "number": 1,
+      "title": "Picking Fund Managers",
+      "ai_tag": "AI Required",
+      "points": 25,
+      "parts": [
+        {
+          "id": "p1a",
+          "letter": "a",
+          "points": 2,
+          "graded": true,
+          "stub": "In a short sentence, state how many of the 100 no-skill managers you expect will look skilled, i.e., have a mean return over the 120 months that is statistically different from 0 at the 5% level."
+        },
+        {
+          "id": "p1b",
+          "letter": "b",
+          "points": 2,
+          "graded": true,
+          "stub": "Ask the AI to simulate the performance of 100 unskilled fund managers over 10 years (120 months) by drawing each “manager's” 120 monthly returns from a normal distribution with mean 0 and standard…"
+        },
+        {
+          "id": "p1c",
+          "letter": "c",
+          "points": 3,
+          "graded": true,
+          "stub": "For each manager, have the AI compute the t-statistic for testing whether that manager's true mean excess return over their 120 months is zero (please write out or have the AI write out the formula…"
+        },
+        {
+          "id": "p1d",
+          "letter": "d",
+          "points": 2,
+          "graded": true,
+          "stub": "How many of your managers “look significant” at the 5% level? Compare that count with the number you predicted in (a)."
+        },
+        {
+          "id": "p1e",
+          "letter": "e",
+          "points": 2,
+          "graded": true,
+          "stub": "Now single out the best manager, i.e., the one with the largest (most positive) t-statistic. Have the AI report her mean monthly excess return xbar and its standard deviation s."
+        },
+        {
+          "id": "p1f",
+          "letter": "f",
+          "points": 2,
+          "graded": true,
+          "stub": "Have the AI report the star manager's two-sided p-value. In a sentence: if a fund had shown you only this manager's track record, would a 5% test have concluded she has skill?"
+        },
+        {
+          "id": "p1g",
+          "letter": "g",
+          "points": 3,
+          "graded": true,
+          "stub": "Every rejection of the null hypothesis in this simulation is a false positive, because no manager has skill by construction."
+        },
+        {
+          "id": "p1h",
+          "letter": "h",
+          "points": 2,
+          "graded": true,
+          "stub": "A colleague asks the natural follow-up: “so how would we ever find a manager with real skill?” To address this question, consider a 101st manager who genuinely has some skill."
+        },
+        {
+          "id": "p1i",
+          "letter": "i",
+          "points": 2,
+          "graded": true,
+          "stub": "Irrespective of whether her p-value is below 0.05, explain, in a short sentence or two in your own words, whether you think the 5% test would reliably single out a truly skilled manager."
+        },
+        {
+          "id": "p1j",
+          "letter": "j",
+          "points": 3,
+          "graded": true,
+          "stub": "Now ask the AI to create a second dataset of monthly returns for 6 managers: the five best performers among your 100 no-skill managers from the first decade, and the truly skilled 101^st manager."
+        },
+        {
+          "id": "p1k",
+          "letter": "k",
+          "points": 2,
+          "graded": true,
+          "stub": "Ask the AI to pool the skilled manager's two decades (240 months) and recompute her t-stat."
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Home-Field Advantage on Trial: The Empty-Stadium Experiment",
+      "ai_tag": "AI Required",
+      "points": 25,
+      "parts": [
+        {
+          "id": "p2a",
+          "letter": "a",
+          "points": 0,
+          "graded": false,
+          "stub": "Drop the dataset into the AI and ask it to show you some summary statistics to familiarize yourself with the variables. (You don't have to submit anything for this part — it's just good practice.)"
+        },
+        {
+          "id": "p2b",
+          "letter": "b",
+          "points": 4,
+          "graded": true,
+          "stub": "Ask the AI to create the variable margin = homegoals - awaygoals."
+        },
+        {
+          "id": "p2c",
+          "letter": "c",
+          "points": 3,
+          "graded": true,
+          "stub": "Ask the AI to create a table like the blank one below that reports each group's n, mean margin, the standard deviation of the margin, and each group's share of home wins (matches with margin > 0)."
+        },
+        {
+          "id": "p2d",
+          "letter": "d",
+          "points": 2,
+          "graded": true,
+          "stub": "In 1 sentence, in your own words, describe how the ghost games compare to the regular games. Please indicate whether the outcome surprised you or not, and why?"
+        },
+        {
+          "id": "p2e",
+          "letter": "e",
+          "points": 7,
+          "graded": true,
+          "stub": "Using the values exactly as printed in your table — so that everyone's arithmetic lands on the same numbers — compute the difference in mean margins, its standard error (do not assume equal variance…"
+        },
+        {
+          "id": "p2f",
+          "letter": "f",
+          "points": 4,
+          "graded": true,
+          "stub": "In a short sentence, state your conclusion about ghost games in “stat speak”, i.e., whether you reject or fail to reject H_0 at the 5% level."
+        },
+        {
+          "id": "p2g",
+          "letter": "g",
+          "points": 2,
+          "graded": true,
+          "stub": "A skeptical colleague objects: “you should have run a two-sided test — maybe ghost games could have helped home teams.” Compute the two-sided p-value at the same 5% level."
+        },
+        {
+          "id": "p2h",
+          "letter": "h",
+          "points": 3,
+          "graded": true,
+          "stub": "In a short sentence or two, in your own words, explain why the verdict is so fragile here, and why the sidedness of a test must be chosen before looking at the results."
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Audit the AI: The Data Behind the Test",
+      "ai_tag": "AI Required",
+      "points": 25,
+      "parts": [
+        {
+          "id": "p3a",
+          "letter": "a",
+          "points": 9,
+          "graded": true,
+          "stub": "Do what Slide Deck 2 tells you to do before trusting any AI analysis: have the AI summarize the data and plot a histogram of minutes. % There are three distinct problems hiding in the file."
+        },
+        {
+          "id": "p3b",
+          "letter": "b",
+          "points": 3,
+          "graded": true,
+          "stub": "Propose a solution for each problem, and then implement these solutions on a second copy of your dataset."
+        },
+        {
+          "id": "p3c",
+          "letter": "c",
+          "points": 4,
+          "graded": true,
+          "stub": "Re-run the AI's test of H_0: = 30 on your cleaned data (the AI may do the computing, but show every piece: your cleaned n — report it explicitly — the mean, sd, SE, and t), and give the p-value and…"
+        },
+        {
+          "id": "p3d",
+          "letter": "d",
+          "points": 3,
+          "graded": true,
+          "stub": "Construct the CI^95 for the true mean delivery time. A CI^95 and a 5% two-sided test should always agree."
+        },
+        {
+          "id": "p3e",
+          "letter": "e",
+          "points": 6,
+          "graded": true,
+          "stub": "Write a 2-3 sentence memo to the board, in your own words that states your corrected verdict on your startup's 30-minute promise, and the lesson you learned about “statistically significant” results…"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Jumping the Gun",
+      "ai_tag": "AI Required",
+      "points": 25,
+      "parts": [
+        {
+          "id": "p4a",
+          "letter": "a",
+          "points": 2,
+          "graded": true,
+          "stub": "State the null and alternative hypotheses being tested."
+        },
+        {
+          "id": "p4b",
+          "letter": "b",
+          "points": 2,
+          "graded": true,
+          "stub": "Suppose the team had decided to test once, at the end of day 30. In a short sentence, state the probability of a false “win” at the 5% level."
+        },
+        {
+          "id": "p4c",
+          "letter": "c",
+          "points": 2,
+          "graded": true,
+          "stub": "Your eager analyst will compute a p-value using the cumulative data at the end of every day. That means he will construct 30 p-values."
+        },
+        {
+          "id": "p4d",
+          "letter": "d",
+          "points": 4,
+          "graded": true,
+          "stub": "Assume 40 customers see each page every day, i.e., a total of 80 visitors to the site every day."
+        },
+        {
+          "id": "p4e",
+          "letter": "e",
+          "points": 3,
+          "graded": true,
+          "stub": "Have the AI plot two histograms side by side — each experiment's lowest p-value across its 30 days, and its day-30 p-value — and have it write two shares on the figure: the share of your experiments…"
+        },
+        {
+          "id": "p4f",
+          "letter": "f",
+          "points": 3,
+          "graded": true,
+          "stub": "Those two shares are likely to be very different. In 1-2 sentences, in your own words, try to explain why."
+        },
+        {
+          "id": "p4g",
+          "letter": "g",
+          "points": 2,
+          "graded": true,
+          "stub": "Have the AI plot the day-by-day p-value path for one of the sequences of draws in the dataset where the p-value drops below 0.05 in the first 15 days but is above 0.05 on day 30."
+        },
+        {
+          "id": "p4h",
+          "letter": "h",
+          "points": 3,
+          "graded": true,
+          "stub": "Using 2-3 sentences, in your own words, explain to the eager junior the problem with “stopping when significant,” and what rule should replace it."
+        },
+        {
+          "id": "p4i",
+          "letter": "i",
+          "points": 4,
+          "graded": true,
+          "stub": "The chastened junior asks: “fine, one test at the end — but how do we know how long to wait?"
+        }
+      ]
+    }
+  ],
+  "page_count": 11
+}
