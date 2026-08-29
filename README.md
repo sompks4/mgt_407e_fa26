@@ -51,6 +51,22 @@ minute later. After that, every update is:
 git add -A && git commit -m "what changed" && git push
 ```
 
+## Who can see it
+
+The site is **unlisted, not gated**. GitHub Pages has no access control — even a
+private repo publishes its Pages site publicly, and private Pages exists only on
+GitHub Enterprise Cloud. So anyone with the URL can read everything.
+
+What is in place: every HTML page carries
+`<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">`, and the
+URL appears only in Canvas. Note that a project-repo `robots.txt` is **not** served
+at the domain root, so it would do nothing here; the meta tags are what search
+engines actually honor, and `nofollow` is what keeps crawlers off the PDFs and page
+images, which cannot carry a tag of their own.
+
+If this ever needs to be a real gate, the options are a class password with the
+assets encrypted at build time, or hosting behind Yale NetID.
+
 ## Adding a problem set
 
 1. Build the questions PDF upstream as usual.
