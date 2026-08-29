@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
 <title>PS2 Answer Builder — MGT 407E</title>
-<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/style.css?v=1ce65285">
 <style>
 /* ---- composer-specific layout ---- */
 
@@ -249,7 +249,7 @@ input:focus, textarea:focus { outline: 2px solid var(--som-blue); outline-offset
         <button type="button" data-width="50">&frac12;</button>
         <button type="button" data-width="65">&frac23;</button>
       </span>
-      <a href="../files/ps2/ps2_questions.pdf" target="_blank" rel="noopener">Open the PDF</a>
+      <a href="../files/ps2/ps2_questions.pdf?v=1ce65285" target="_blank" rel="noopener">Open the PDF</a>
     </div>
     <div class="pane-pdf-scroll" id="question-pages"></div>
   </div>
@@ -265,9 +265,12 @@ input:focus, textarea:focus { outline: 2px solid var(--som-blue); outline-offset
 
       <div class="note">
         <p><strong>Your work is saved in this browser as you type</strong> — on this
-        computer, in this browser only. It is not sent anywhere, and I cannot see it. Use
-        <em>Download draft</em> before you switch machines, and keep in mind that clearing
-        your browsing data will clear this too.</p>
+        computer, in this browser only. It is not sent anywhere, and I cannot see it.
+        Clearing your browsing data will clear this too.</p>
+        <p><em>Back up my work</em> saves a small <code>.json</code> file holding everything
+        you have entered, so you can move to another computer or browser and pick up where
+        you left off with <em>Restore a backup</em>. That file is a safety net, <strong>not
+        the thing you hand in</strong> — what goes to Canvas is the PDF.</p>
       </div>
 
       <h2>Your name</h2>
@@ -341,22 +344,22 @@ input:focus, textarea:focus { outline: 2px solid var(--som-blue); outline-offset
 
 <div class="actionbar">
   <button class="btn" id="make-pdf" type="button">Generate PDF</button>
-  <button class="btn secondary btn-sm" id="save-draft" type="button">Download draft</button>
-  <button class="btn secondary btn-sm" id="load-draft" type="button">Load draft</button>
+  <button class="btn secondary btn-sm" id="save-draft" type="button">Back up my work</button>
+  <button class="btn secondary btn-sm" id="load-draft" type="button">Restore a backup</button>
   <button class="btn secondary btn-sm" id="toggle-pdf" type="button">Hide questions</button>
   <input type="file" id="draft-input" accept="application/json" hidden>
   <span class="progress-pill" id="progress">&mdash;</span>
   <span class="status" id="status">&nbsp;</span>
 </div>
 
-<script src="../assets/vendor/jspdf.umd.min.js"></script>
-<script src="../assets/composer.js"></script>
+<script src="../assets/vendor/jspdf.umd.min.js?v=1ce65285"></script>
+<script src="../assets/composer.js?v=1ce65285"></script>
 <script>
   startComposer({
     setId: "ps2",
     setTitle: "Problem Set 2 - Hypothesis Testing",
     course: "MGT 407E, Fall 2026",
-    dataUrl: "../assets/ps2.json",
+    dataUrl: "../assets/ps2.json?v=1ce65285",
     pagesDir: "../files/ps2/pages/"
   });
 </script>

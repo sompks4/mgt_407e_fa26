@@ -137,7 +137,7 @@ function startComposer(config) {
         localStorage.setItem("mgt407e-" + config.setId, JSON.stringify(light));
         setStatus("Saved (text only) " + stamp());
       } catch (e) {
-        setStatus("Could not save — download a draft to be safe");
+        setStatus("Could not save — use Back up my work to be safe");
       }
       return;
     }
@@ -396,13 +396,16 @@ function startComposer(config) {
   /* The reading pane: the questions as page images beside the answer boxes.
      Loose PNGs rather than an embedded PDF -- Chrome's plugin renders blank in a
      narrow iframe, and images behave identically everywhere, phones included. */
-  function renderQuestionPages(count) {
+  function renderQuestionPages(count, build) {
     var host = document.getElementById("question-pages");
     if (!host || !count) return;
+    // The build stamp changes when the questions are rebuilt, so a student who
+    // read the set last week is not served the old pages out of cache.
+    var stamp = build ? "?v=" + build : "";
     for (var i = 1; i <= count; i++) {
       var num = i < 10 ? "0" + i : String(i);
       host.appendChild(el("img", {
-        src: config.pagesDir + "page-" + num + ".png",
+        src: config.pagesDir + "page-" + num + ".png" + stamp,
         alt: "Page " + i + " of the problem set",
         loading: i > 2 ? "lazy" : "eager",
         draggable: "false"
@@ -638,7 +641,7 @@ function startComposer(config) {
     } catch (err) {
       setStatus("PDF failed — see the message");
       alert("Something went wrong building the PDF:\n\n" + err.message +
-            "\n\nDownload your draft so nothing is lost, then email Peter or Jacob.");
+            "\n\nPress Back up my work so nothing is lost, then email Peter or Jacob.");
     }
   }
 
@@ -685,7 +688,7 @@ function startComposer(config) {
       a.download = config.setId + "_draft_" + (slug(state.meta.last) || "draft") + ".json";
       a.click();
       URL.revokeObjectURL(a.href);
-      setStatus("Draft downloaded " + stamp());
+      setStatus("Backup saved to your downloads " + stamp());
     });
 
     var draftInput = document.getElementById("draft-input");
@@ -715,7 +718,7 @@ function startComposer(config) {
           bindMetaValues();
           updateProgress();
           save();
-          setStatus("Draft loaded " + stamp());
+          setStatus("Backup restored " + stamp());
         } catch (e) {
           alert("That file could not be read as a PS2 draft.");
         }
@@ -750,7 +753,7 @@ function startComposer(config) {
     })
     .then(function (data) {
       problems = data.problems;
-      renderQuestionPages(data.page_count);
+      renderQuestionPages(data.page_count, data.build);
       return openDb().then(function (opened) {
         db = opened;
         return dbGet(db, config.setId);
