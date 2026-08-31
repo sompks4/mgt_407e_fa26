@@ -75,7 +75,7 @@
           "letter": "j",
           "points": 3,
           "graded": true,
-          "stub": "Now ask the AI to create a second dataset of monthly returns for 6 managers: the five best performers among your 100 no-skill managers from the first decade, and the truly skilled 101^st manager."
+          "stub": "Do the “stars” repeat? Ask the AI to simulate a second decade (another 120 months) for all 101 managers, using the same distributions as before — mean 0 and standard deviation 4% for the first 100,…"
         },
         {
           "id": "p1k",
@@ -237,27 +237,20 @@
         {
           "id": "p4f",
           "letter": "f",
-          "points": 3,
+          "points": 4,
           "graded": true,
           "stub": "Those two shares are likely to be very different. In 1-2 sentences, in your own words, try to explain why."
         },
         {
           "id": "p4g",
           "letter": "g",
-          "points": 2,
-          "graded": true,
-          "stub": "Have the AI plot the day-by-day p-value path for one of the sequences of draws in the dataset where the p-value drops below 0.05 in the first 15 days but is above 0.05 on day 30."
-        },
-        {
-          "id": "p4h",
-          "letter": "h",
-          "points": 3,
+          "points": 4,
           "graded": true,
           "stub": "Using 2-3 sentences, in your own words, explain to the eager junior the problem with “stopping when significant,” and what rule should replace it."
         },
         {
-          "id": "p4i",
-          "letter": "i",
+          "id": "p4h",
+          "letter": "h",
           "points": 4,
           "graded": true,
           "stub": "The chastened junior asks: “fine, one test at the end — but how do we know how long to wait?"
@@ -266,6 +259,6 @@
     }
   ],
   "page_count": 12,
-  "build": "1ce65285",
-  "built_at": "2026-08-29 16:30"
+  "build": "4e028b27",
+  "built_at": "2026-08-31 14:01"
 }
